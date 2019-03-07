@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.error {
+  border-color: red;
+}
+
+.success {
+  border-color: green;
+}
+.w90 {
+  width: 90px;
+}
+
+header {
+  padding: 154px 0 100px;
+}
+.killimanjaro-header {
+  background-color: orange;
+}
+
+@media (min-width: 992px) {
+  header {
+    padding: 156px 0 100px;
+  }
+}
+
+section {
+  padding: 150px 0;
+}
+.footer-bottom {
+  background: #343a40 !important;
+  padding: 40px;
+}
+footer a {
+  color: #f8f9fa !important;
+}

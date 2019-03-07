@@ -1,0 +1,19 @@
+body {
+  background-color: #b2b799;
+  /* background-color: #0747A6; */
+
+  width: 100%;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 150px;
+  font-size: 14px;
+}
+
+.error {
+  border-color: red;
+}
+
+.success {
+  border-color: green;
+}

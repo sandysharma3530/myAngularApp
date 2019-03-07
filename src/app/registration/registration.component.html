@@ -1,0 +1,308 @@
+<!------ Include the above in your HEAD tag ---------->
+<body>
+  <div class="container">
+    <br />
+
+    <hr />
+
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <header class="card-header">
+            <a
+              routerLink="/login"
+              class="float-right btn btn-outline-primary mt-1"
+              >Log in</a
+            >
+            <!-- <h4 class="card-title mt-2" appHighlight highlightColor="red"> -->
+            <h4 class="card-title mt-2 w90" [appHighlight]="'red'">
+              Register
+            </h4>
+          </header>
+          <article class="card-body">
+            <form
+              #f="ngForm"
+              name="registrationForm"
+              (ngSubmit)="f.valid && submit(f)"
+            >
+              <div class="form-row">
+                <div class="col form-group">
+                  <label>First name </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="First name"
+                    required
+                    [ngClass]="{
+                      error: f.submitted && !fname.valid,
+                      success: f.submitted && fname.valid
+                    }"
+                    name="firstname"
+                    [(ngModel)]="firstname"
+                    #fname="ngModel"
+                    minlength="2"
+                    appCapson
+                  />
+                  <!-- <div *ngIf="f.submitted && !fname.valid" class="text-danger">
+                    First name is required.
+                  </div> -->
+                  <div *ngIf="f.submitted && fname.errors" class="text-danger">
+                    <div [hidden]="!fname.errors.required">
+                      First name is required.
+                    </div>
+                    <div [hidden]="!fname.errors.minlength">
+                      Minlength is 2
+                    </div>
+                  </div>
+                </div>
+                <!-- form-group end.// -->
+                <div class="col form-group">
+                  <label>Last name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Last name"
+                    name="lastname"
+                    [(ngModel)]="lastname"
+                    #lname="ngModel"
+                    [ngClass]="{
+                      error: f.submitted && !lname.valid,
+                      success: f.submitted && lname.valid
+                    }"
+                    required
+                    minlength="2"
+                    appCapson
+                  />
+                  <div *ngIf="f.submitted && lname.errors" class="text-danger">
+                    <div [hidden]="!lname.errors.required">
+                      Last name is required.
+                    </div>
+                    <div [hidden]="!lname.errors.minlength">
+                      Minlength is 2
+                    </div>
+                  </div>
+                </div>
+                <!-- form-group end.// -->
+              </div>
+              <!-- form-row end.// -->
+              <div class="form-group">
+                <label>Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Username"
+                  name="username"
+                  [(ngModel)]="username"
+                  #uname="ngModel"
+                  [ngClass]="{
+                    error: f.submitted && !uname.valid,
+                    success: f.submitted && uname.valid
+                  }"
+                  required
+                />
+                <!-- <div *ngIf="f.submitted && uname.errors" class="text-danger">
+                  <div [hidden]="!uname.errors.required">
+                    Username is required.
+                  </div>
+                </div> -->
+              </div>
+              <!-- form-group end.// -->
+
+              <div class="form-group">
+                <label>Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email"
+                  name="email"
+                  [(ngModel)]="email"
+                  #uemail="ngModel"
+                  [ngClass]="{
+                    error: f.submitted && !uemail.valid,
+                    success: f.submitted && uemail.valid
+                  }"
+                  required
+                />
+                <small class="form-text text-muted"
+                  >We'll never share your email with anyone else.</small
+                >
+                <div *ngIf="f.submitted && uemail.errors" class="text-danger">
+                  <div [hidden]="!uemail.errors.required">
+                    Email is required
+                  </div>
+                  <div [hidden]="!uemail.errors.invalid">
+                    Your email address is invalid
+                  </div>
+                </div>
+              </div>
+              <!-- form-group end.// -->
+              <div class="form-group">
+                <label class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    required
+                    [(ngModel)]="gender"
+                    #ugender="ngModel"
+                  />
+                  <span class="form-check-label"> Male </span>
+                </label>
+                <label class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    value="female"
+                    required
+                    [(ngModel)]="gender"
+                    #ugender="ngModel"
+                  />
+                  <span class="form-check-label"> Female</span>
+                </label>
+                <div *ngIf="f.submitted && !ugender.valid" class="text-danger">
+                  Gender is required
+                </div>
+              </div>
+              <!-- form-group end.// -->
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>City</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="city"
+                    placeholder="City"
+                    [(ngModel)]="city"
+                    #ucity="ngModel"
+                    [ngClass]="{
+                      error: f.submitted && !ucity.valid,
+                      success: f.submitted && ucity.valid
+                    }"
+                    appCapson
+                    required
+                  />
+                  <div *ngIf="f.submitted && !ucity.valid" class="text-danger">
+                    City is required.
+                  </div>
+                </div>
+                <!-- form-group end.// -->
+                <div class="form-group col-md-6">
+                  <label>Country</label>
+                  <select
+                    id="inputState"
+                    class="form-control"
+                    name="country"
+                    [(ngModel)]="country"
+                    #ucountry="ngModel"
+                    required
+                    [ngClass]="{
+                      error: f.submitted && !ucountry.valid,
+                      success: f.submitted && ucountry.valid
+                    }"
+                  >
+                    <option value=""> Choose...</option>
+                    <option *ngFor="let country of countries" value="country">
+                      {{ country | uppercase }}
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="f.submitted && !ucountry.valid"
+                    class="text-danger"
+                  >
+                    Country is required.
+                  </div>
+                </div>
+                <!-- form-group end.// -->
+              </div>
+              <!-- form-row.// -->
+              <div class="form-group">
+                <label>Password</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  [(ngModel)]="password"
+                  #upass="ngModel"
+                  required
+                  [ngClass]="{
+                    error: f.submitted && !upass.valid,
+                    success: f.submitted && upass.valid
+                  }"
+                  minlength="4"
+                  maxlength="8"
+                />
+
+                <div *ngIf="f.submitted && upass.errors" class="text-danger">
+                  <div [hidden]="!upass.errors.required">
+                    Password is required.
+                  </div>
+                  <div [hidden]="!upass.errors.minlength">
+                    Minlength is 4.
+                  </div>
+                  <div [hidden]="!upass.errors.maxlength">
+                    Maxlength is 8.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Confirm password</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  placeholder="Confirm password"
+                  name="confirmPassword"
+                  [(ngModel)]="confirmPassword"
+                  #uconfirm="ngModel"
+                  required
+                  [ngClass]="{
+                    error: f.submitted && !uconfirm.valid,
+                    success: f.submitted && uconfirm.valid
+                  }"
+                  minlength="4"
+                  maxlength="8"
+                  validateEqual="upass"
+                />
+                <!-- formControlName="confirmPassword"
+                compare="upass" -->
+                <div *ngIf="f.submitted && uconfirm.errors" class="text-danger">
+                  <div [hidden]="!uconfirm.errors.required">
+                    Confirm password is required.
+                  </div>
+                  <!-- <div [hidden]="upass.errors.validateEqual">
+                    Confirm password and Password dont match.
+                  </div> -->
+                </div>
+              </div>
+              <div
+                *ngIf="f.submitted && password != confirmPassword"
+                class="text-danger"
+              >
+                Confirm password and Password dont match.
+              </div>
+              <!-- form-group end.// -->
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">
+                  Register
+                </button>
+              </div>
+              <!-- form-group// -->
+            </form>
+          </article>
+          <!-- card-body end .// -->
+          <div class="border-top card-body text-center">
+            Have an account? <a routerLink="/login">Log In</a>
+          </div>
+        </div>
+        <!-- card.// -->
+      </div>
+      <!-- col.//-->
+    </div>
+    <hr />
+    <!-- row.//-->
+  </div>
+  <!--container end.//-->
+  <br /><br />
+</body>

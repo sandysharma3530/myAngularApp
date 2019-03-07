@@ -1,0 +1,48 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" routerLink="/home">Angular App</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" routerLink="/about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" routerLink="/contact"
+            >Contact Us</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-secondary"
+            (click)="logout()"
+          >
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="killimanjaro-header text-white">
+  <div class="container text-center">
+    <h1>Welcome to MAD</h1>
+    <p class="lead">
+      A landing page template freshly redesigned for MAD
+    </p>
+  </div>
+</header>
